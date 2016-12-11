@@ -1,0 +1,17 @@
+{% extends 'layout.twig' %} {% block body %}
+<div class="card-container">{% for post in posts %} {% if post.PostTypeId == 1%}
+    <div class="card">
+        <header class="card-title">
+            <h1><a href="/post/{{post.Id}}">{{post.Title}}</a></h1>
+            <h5><strong>Tags : </strong> {{post.Tags|e}}</h5>
+        </header>
+        <div class="card-body">
+            {{post.Body}}
+        </div>
+    </div>
+    {% else %}
+    <div class="card">
+        <div class="card-body">
+            {{post.Body}}
+        </div>
+        {% endif %}{% endfor %} </div>{% endblock %}
